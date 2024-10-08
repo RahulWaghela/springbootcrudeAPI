@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 
 public class Userrepository {
 
-    // Read user Get method
+    // Read user Get request
     public List<Usermodel> getUserData() throws ClassNotFoundException {
         String readQuery = "SELECT * FROM employees";
 
@@ -70,11 +70,11 @@ public class Userrepository {
 
     }
 
-    // Delete user Delete Post
+    // Delete user Delete requesrt
     public void deleteUser(String id) throws ClassNotFoundException {
         String deleteQuery = "DELETE FROM employees WHERE id = ?";
         try {
-            Connection connection = Dbconnection.getConnection(); // Ensure connection is closed properly
+            Connection connection = Dbconnection.getConnection(); 
             PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery);
 
             preparedStatement.setLong(1, Long.parseLong(id));
