@@ -32,7 +32,7 @@ public class Usercontroller {
 
      @PostMapping("/createUser")
      public String postMethodName(@RequestBody Usermodel usermodel) {         
-        return userservice.getClientData(usermodel.getName(),usermodel.getDepartment(),usermodel.getEmail(), usermodel.getPhone(),usermodel.getSalary());
+        return userservice.getClientData(usermodel);
      }
 
       @DeleteMapping("/deleteUser/{id}")

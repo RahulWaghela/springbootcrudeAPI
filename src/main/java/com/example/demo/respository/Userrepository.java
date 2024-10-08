@@ -45,18 +45,18 @@ public class Userrepository {
     }
 
     // Create New user post request
-    public void createNewUser(String name, String department, String email, Long phone, Long salary) {
+    public void createNewUser(Usermodel usermodel) {
         try {
             String sql = "INSERT INTO employees (name, department, email, phone, salary) VALUES (?, ?, ?, ?, ?)";
             Connection connection = Dbconnection.getConnection();
             connection.setAutoCommit(true);
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, department);
-            preparedStatement.setString(3, email);
-            preparedStatement.setLong(4, phone);
-            preparedStatement.setLong(5, salary);
+            preparedStatement.setString(1,usermodel.getName());
+            preparedStatement.setString(2, usermodel.getDepartment());
+            preparedStatement.setString(3, usermodel.getEmail());
+            preparedStatement.setLong(4, usermodel.getPhone());
+            preparedStatement.setLong(5, usermodel.getSalary());
 
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {

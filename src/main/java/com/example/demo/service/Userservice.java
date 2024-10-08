@@ -13,8 +13,12 @@ public class Userservice {
        return userrepository.getUserData();
     }
 
-    public String getClientData(String name, String department, String email, Long phone, Long salary) {
-        userrepository.createNewUser(name, department, email, phone, salary);
+    // public String getClientData(String name, String department, String email, Long phone, Long salary) {
+    //     userrepository.createNewUser(name, department, email, phone, salary);
+    //     return "user created...";
+    // }
+    public String getClientData(Usermodel usermodel) {
+        userrepository.createNewUser(usermodel);
         return "user created...";
     }
 
