@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.demo.db.Dbconnection;
 import com.example.demo.model.Usermodel;
-import com.example.demo.utils.Dbconnection;
 
 import org.springframework.stereotype.Repository;
 
