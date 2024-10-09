@@ -90,10 +90,10 @@ public class Userrepository {
             System.out.println("Error while deleting user: " + e.getMessage());
         }
     }
-
+// update putrequest 
     public void updateUserInfo(String id, Usermodel usermodel) {
         // String updateQuery="update employees set name =? department=? email=?  phone=? salary=?";
-        String updateQuery = "UPDATE employees SET name = ?, department = ?, email = ?, phone = ?, salary = ? WHERE id = ?"; // Fixed the query
+        String updateQuery = "UPDATE employees SET name = ?, department = ?, email = ?, phone = ?, salary = ? WHERE id = ?"; 
         try {
             Connection connection = Dbconnection.getConnection(); 
             PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
@@ -111,7 +111,6 @@ public class Userrepository {
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
-        }        
-        
+        }                
     }
 }
