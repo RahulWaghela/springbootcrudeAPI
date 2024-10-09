@@ -103,12 +103,7 @@ public class Userrepository {
             preparedStatement.setLong(4, usermodel.getPhone());
             preparedStatement.setLong(5, usermodel.getSalary());
             preparedStatement.setString(6, id);
-            int rowsAffected = preparedStatement.executeUpdate();
-            if (rowsAffected > 0) {
-                System.out.println("User with ID " + id + " updated successfully.");
-            } else {
-                System.out.println("No user found with ID " + id + ".");
-            }
+            preparedStatement.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }        
