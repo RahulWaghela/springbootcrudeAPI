@@ -12,6 +12,8 @@ import com.example.demo.model.Usermodel;
 import com.example.demo.service.Userservice;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -38,5 +40,11 @@ public class Usercontroller {
       @DeleteMapping("/deleteUser/{id}")
       public String deleteUserData(@PathVariable String id) throws ClassNotFoundException {
           return userservice.deleteUser(id);
+      }
+
+      @PutMapping("/updateUser/{id}")
+      public String putMethodName(@PathVariable String id, @RequestBody Usermodel usermodel) {
+            userservice.updateUserdata(usermodel, id);          
+            return "update succesfully";
       }
 }

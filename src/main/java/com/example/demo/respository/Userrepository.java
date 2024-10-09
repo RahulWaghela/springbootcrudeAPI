@@ -90,4 +90,28 @@ public class Userrepository {
             System.out.println("Error while deleting user: " + e.getMessage());
         }
     }
+
+    public void updateUserInfo(String id, Usermodel usermodel) {
+        // String updateQuery="update employees set name =? department=? email=?  phone=? salary=?";
+        String updateQuery = "UPDATE employees SET name = ?, department = ?, email = ?, phone = ?, salary = ? WHERE id = ?"; // Fixed the query
+        try {
+            Connection connection = Dbconnection.getConnection(); 
+            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+            preparedStatement.setString(1, usermodel.getName());
+            preparedStatement.setString(2, usermodel.getDepartment());
+            preparedStatement.setString(3, usermodel.getEmail());
+            preparedStatement.setLong(4, usermodel.getPhone());
+            preparedStatement.setLong(5, usermodel.getSalary());
+            preparedStatement.setString(6, id);
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("User with ID " + id + " updated successfully.");
+            } else {
+                System.out.println("No user found with ID " + id + ".");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }        
+        
+    }
 }
